@@ -23,16 +23,15 @@ object  FuelManager {
             val (request, response, result) = Fuel.get("http://192.168.7.36:5000/api/word/list")
 //                .header("Accept", "application/json")
                 .responseString()
-            Log.d("gzb", "result" + Gson().toJson(result))
+//            Log.d("gzb", "result" + Gson().toJson(result))
 
             when (result) {
                 is Result.Failure -> {
-                    Log.d("gzb", "Inside the Fuel Failure result1 " + Gson().toJson(response))
                     return@withContext String(response.data)
                 }
                 is Result.Success -> {
-                    val data = result.get()
-                    Log.d("gzb", "Inside the Fuel Data Success result $data")
+                    val data = result.value
+//                    Log.d("gzb", "Inside the Fuel Data Success result $data")
 //                    val list : List<WordEnity>  = result.get()
                     return@withContext data // response.statusCode is also available if we need to go that path.
                 }
