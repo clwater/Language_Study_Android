@@ -27,7 +27,7 @@ class WordViewModel : ViewModel(){
 
     fun getWordList(index: Int, max: Int ){
         ioScope.launch {
-            val result = FuelManager.getWordList()
+            val result = FuelManager.getWordList(0)
 //            if (result is String) {
 //                Log.d("gzb", "fail: " + Gson().toJson(result))
 //                val errorMap = hashMapOf<String, String>()
