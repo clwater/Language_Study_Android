@@ -9,7 +9,7 @@ import kotlin.random.Random
 class Constants {
     companion object {
         val SERVER_URL = "http://localhost:5000"
-        val Image_URL = "https://source.unsplash.com/900x1600/?nature"
+        val Image_URL = "https://source.unsplash.com/900x1600/?white"
             get() = field + "/" + Random(System.currentTimeMillis()).nextInt(10000000)
     }
 }
