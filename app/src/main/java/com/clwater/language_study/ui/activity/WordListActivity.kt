@@ -41,7 +41,6 @@ class WordListActivity : BaseActivity() {
 
 
         wordViewModel.wordList.observe(this){
-            Log.d("gzb", "wordViewModel.wordList: " + Gson().toJson(it))
             initView()
 //            Log.d("gzb", it[0].word)
         }
@@ -68,7 +67,6 @@ class WordListActivity : BaseActivity() {
 
     @Composable
     fun Greeting(list: List<WordEnity>) {
-        Log.d("gzb", Gson().toJson(list))
         Column() {
             LazyColumn {
                 list.forEach { item ->
