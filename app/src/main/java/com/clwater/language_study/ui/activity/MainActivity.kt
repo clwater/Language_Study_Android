@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import com.clwater.language_study.BaseActivity
@@ -92,14 +93,22 @@ class MainActivity : BaseActivity() {
             Modifier
         ) {
             UI.randomWord.value?.let {
-                Box(modifier = Modifier.align(Alignment.Center)
+                Box(modifier = Modifier
+                    .align(Alignment.Center)
                     .fillMaxWidth(0.5f)
-                    .background(Color(0x997E7E7E))
+                    .background(Color(0x993C3C3C))
                     .clickable { Toast.makeText(this@MainActivity, "1111", Toast.LENGTH_SHORT) }
-                    .clip(RoundedCornerShape(8.dp, 8.dp, 0.dp, 0.dp))
+                    .clip(RoundedCornerShape(24.dp, 24.dp, 0.dp, 0.dp))
                     .padding(12.dp)
                 ) {
-                    Text(text = it.word, modifier = Modifier.align(Alignment.Center))
+
+                    Column() {
+                        Text(text = it.word, fontSize = 20.sp, color = Color.White)
+//                            it.phonetic_symbol?.let { it1 -> Text(text = it1) }
+                        Text(text = it.translate, color = Color.White)
+
+                    }
+
                 }
             }
             Button(onClick = {

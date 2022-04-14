@@ -39,11 +39,9 @@ class MainViewModel: ViewModel() {
     fun getRandomWord(){
         ioScope.launch {
             val result = FuelManager.getWordRandom()
-            Log.d("gzb", "113" + Gson().toJson(result))
 
             val wordEnity =
                 Gson().fromJson<WordRandomModel>(result.toString(), object: TypeToken<WordRandomModel>() {}.type)
-            Log.d("gzb", "112" + Gson().toJson(wordEnity))
             UI.value?.randomWord?.postValue(wordEnity.data)
             UI.postValue(UI.value)
         }
